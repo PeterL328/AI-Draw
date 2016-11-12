@@ -4,6 +4,7 @@ var pop_size = 50;
 var mutation_rate = 0.01;
 img = loadImage('assets/peter.jpg');  // Load the image
 var population;
+var mating_pool
 
 function setup() {
   createCanvas(720, 400);
@@ -21,59 +22,26 @@ function draw() {
   for (var i = 0; i < pop_size; i++) {
     population[i].fitness();
   }
+
+  // Mating pool
+  mating_pool = new Array();
+  for (var i = 0; i < pop_size; i++) {
+    var n = Math.floor(population[i].fitness() * 100);
+    for (var j = 0; j < n; j++) {
+      mating_pool.push(population[i]);
+    }
+  }
+  // Reproduction
+  for (var i = 0; i < pop_size; i++) {
+    var a = Math.floor(Math.random(mating_pool.length));
+    var b = Math.floor(Math.random(mating_pool.length));
+    var partnerA = matingPool[a];
+    var partnerB = matingPool[b];
+    // Crossover
+    var child = partnerA.crossover(partnerB)
+    // Mutate
+    child.mutate(mutation_rate);
+    // Add child to population
+    population[i] = child;
+  }
 }
-
-
-//
-// void draw() {
-//
-//
-// Step 2: Selection
-//
-//
-//
-// Step 2a: Calculate fitness.
-//
-//   for (int i = 0; i < population.length; i++) {
-//     population[i].fitness();
-//   }
-//
-//
-// Step 2b: Build mating pool.
-//
-//   ArrayList<DNA> matingPool = new ArrayList<DNA>();
-//
-//   for (int i = 0; i < population.length; i++) {
-//
-// Add each member n times according to its fitness score.
-//
-//     int n = int(population[i].fitness * 100);
-//     for (int j = 0; j < n; j++) {
-//       matingPool.add(population[i]);
-//     }
-//
-//   }
-//
-//
-// Step 3: Reproduction
-//
-//   for (int i = 0; i < population.length; i++) {
-//     int a = int(random(matingPool.size()));
-//     int b = int(random(matingPool.size()));
-//     DNA partnerA = matingPool.get(a);
-//     DNA partnerB = matingPool.get(b);
-//
-// Step 3a: Crossover
-//
-//     DNA child = partnerA.crossover(partnerB);
-//
-// Step 3b: Mutation
-//
-//     child.mutate(mutationRate);
-//
-//
-// Note that we are overwriting the population with the new children. When draw() loops, we will perform all the same steps with the new population of children.
-//
-//     population[i] = child;
-//   }
-// }
