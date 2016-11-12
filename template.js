@@ -22,7 +22,7 @@ function draw() {
   image(img, 0, 0);
 
   for (var i = 0; i < pop_size; i++) {
-    population[i].calcFitness();
+    population[i].calcFitness(image.width, image.height);
   }
 
   // Mating pool

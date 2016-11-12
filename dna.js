@@ -25,8 +25,24 @@ class DNA {
     debugger;
   }
 
-  calcFitness() {
-    this.fitness = 0.01;
+  calcFitness(width, height) {
+    loadPixels();
+    var d = pixelDensity();
+    for (var i = 0; i < width*height*d*d*2; i+=4) {
+      //get delta per color
+      var deltaRed = pixels[i] - pixels[i+width*height*d*d*2];
+      var deltaGreen = pixels[i+1] - pixels[i+1+width*height*d*d*2];
+      var deltaBlue = pixels[i+2] - pixels[i+2+width*height*d*d*2];
+
+      // measure the distance between the colors in 3D space
+      var pixelFitness = deltaRed * deltaRed +
+                         deltaGreen * deltaGreen +
+                         deltaBlue * deltaBlue;
+
+      //add the pixel fitness to the total fitness ( lower is better )
+      this.fitness += pixelFitness;
+    }
+    this.fitness = 1/this.fitness;
   }
 
   crossover(partner) {
