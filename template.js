@@ -5,9 +5,44 @@ var mutation_rate = 0.01;
 var population;
 var mating_pool;
 
+var pic1;
+var pic2;
+
+//Preload the pictures
+function preload(){
+  pic1 = loadImage("assets/peter.jpg");
+  pic2 = loadImage("assets/google.jpg");
+}
+
+// Sketch One
+var sketch1 = function( p ) { // p could be any variable name
+  p.setup = function() {
+    p.createCanvas(400, 200);
+  };
+
+  p.draw = function() {
+    image(pic1, 0, 0);
+  };
+};
+//load it to div defined in html
+new p5(sketch1, 'sketch1');
+
+// Sketch Two
+var sketch2 = function( p ) {
+  p.setup = function() {
+    p.createCanvas(400, 200);
+  };
+
+  p.draw = function() {
+    image(pic2, 0, 400);
+  };
+};
+//load it to div defined in html
+new p5(sketch2, 'sketch2');
+
+
 function setup() {
-  createCanvas(720, 400);
-  img = loadImage('assets/peter.jpg');  // Load the image
+  createCanvas(1500, 900);
 
   population = new Array();
 
@@ -19,7 +54,8 @@ function setup() {
 function draw() {
   // debugger;
   // Displays the image at its actual size at point (0,0)
-  image(img, 0, 0);
+  //image(pic1, 0, 0);
+  //image(pic2, 300, 0);
 
   for (var i = 0; i < pop_size; i++) {
     population[i].calcFitness(image.width, image.height);
