@@ -1,5 +1,6 @@
 // jscs:disable
 class DNA {
+
   constructor() {
     this.gene = [];
     this.fitness = 0;
@@ -32,6 +33,22 @@ class DNA {
   }
 
   mutate(){
+    var mutationRate = 0.01;
 
+    for (var i = 0; i < this.gene.length; i++){
+
+      if (random(1) < mutationRate){
+        if (i%7 == 0 || i%7 == 1 || i%7 == 2 ) {
+          this.gene[i] = Math.floor(Math.random() * (255 - 0 + 1));
+        } else if (i%7 == 3) {
+          this.gene[i] = Math.random();
+        } else  {
+          this.gene[i] = Math.floor(Math.random() * (200 - 0 + 1));
+        }
+      }
+
+    }
   }
+
+
 }
