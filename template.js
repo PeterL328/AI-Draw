@@ -8,7 +8,6 @@ var mating_pool;
 function setup() {
   createCanvas(720, 400);
   img = loadImage('assets/peter.jpg');  // Load the image
-  image(img, 0, 0);
 
   population = new Array();
 
@@ -20,6 +19,8 @@ function setup() {
 function draw() {
   // debugger;
   // Displays the image at its actual size at point (0,0)
+  image(img, 0, 0);
+
   for (var i = 0; i < pop_size; i++) {
     population[i].calcFitness();
   }
