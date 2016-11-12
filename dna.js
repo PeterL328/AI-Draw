@@ -22,7 +22,6 @@ class DNA {
         this.gene[i] = Math.floor(Math.random() * (200 - 0 + 1));
       }
     }
-    debugger;
   }
 
   calcFitness(width, height) {
