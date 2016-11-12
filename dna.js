@@ -3,7 +3,7 @@ class DNA {
 
   constructor() {
     this.gene = [];
-    this.fitness = 0;
+    this.fitness = 0.01;
 
     this.length = 7*100;
 
@@ -41,6 +41,8 @@ class DNA {
       //add the pixel fitness to the total fitness ( lower is better )
       this.fitness += pixelFitness;
     }
+    // debugger;
+    // console.log(this.fitness);
     this.fitness = 1/this.fitness;
   }
 

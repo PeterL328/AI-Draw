@@ -58,13 +58,13 @@ function draw() {
   //image(pic2, 300, 0);
 
   for (var i = 0; i < pop_size; i++) {
-    population[i].calcFitness(image.width, image.height);
+    population[i].calcFitness(300, 600);
   }
 
   // Mating pool
   mating_pool = new Array();
   for (var i = 0; i < pop_size; i++) {
-    var n = Math.floor(population[i].fitness * 100);
+    var n = Math.floor(population[i].fitness);
     for (var j = 0; j < n; j++) {
       mating_pool.push(population[i]);
     }
