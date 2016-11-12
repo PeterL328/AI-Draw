@@ -22,6 +22,7 @@ class DNA {
         this.gene[i] = Math.floor(Math.random() * (200 - 0 + 1));
       }
     }
+    debugger;
   }
 
   calcFitness() {
@@ -29,7 +30,11 @@ class DNA {
   }
 
   crossover(partner) {
-    return this;
+    var child = this;
+    for (var i = 0; i < this.length/2; i++) {
+      child.gene[i] = partner.gene[i];
+    }
+    return child;
   }
 
   mutate(){
