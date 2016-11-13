@@ -11,7 +11,7 @@ var pic2;
 var counter = 0;
 //Preload the pictures
 function preload(){
-  //pic1 = loadImage("assets/peter.jpg");
+  pic1 = loadImage("assets/peter.jpg");
   //pic2 = loadImage("assets/google.jpg");
 }
 /*
@@ -56,7 +56,7 @@ function setup() {
 function draw() {
   // debugger;
   // Displays the image at its actual size at point (0,0)
-  //image(pic1, 0, 0);
+  image(pic1, 0, 0);
   //image(pic2, 0, 300);
 
   //start drawing the circles
@@ -65,21 +65,23 @@ function draw() {
 
     for (var k = 0; k < population[counter].gene.length; k+=7){
       //values for RGB
-      var red = population[counter][k];
-      var green = population[counter][k+1];
-      var blue = population[counter][k+2];
+      var red = population[counter].gene[k];
+      var green = population[counter].gene[k+1];
+      var blue = population[counter].gene[k+2];
       //x, y and diameter
-      var x = population[counter][k+4];
-      var y = population[counter][k+5];
-      var diameter = population[counter][k+6] * 2;
+      var x = population[counter].gene[k+4];
+      var y = population[counter].gene[k+5];
+      var diameter = population[counter].gene[k+6] * 2;
 
-      var c = color('rgb(red, green, blue)');
+      fill(red, green, blue);
       noStroke();
-      fill(c);
+
 
       ellipse(x, y, diameter, diameter);
 
     }
+    console.log(population[counter][0]);
+    console.log(population)
 
   //}
 

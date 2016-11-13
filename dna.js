@@ -17,11 +17,18 @@ class DNA {
       } else if (i%7 == 3) {
         // alpha value
         this.gene[i] = Math.random();
-      } else  {
-        // x y and radius
+      } else  if (i%7 == 4){
+        // x values: 0 - 300
         this.gene[i] = Math.floor(Math.random() * (200))+1;
+      } else if (i%7 == 5){
+        //y values: 300 - 600
+
+      } else{
+        //radius: 0 -150
+
       }
     }
+
   }
 
   calcFitness(width, height) {
