@@ -65,7 +65,7 @@ function draw() {
   mating_pool = new Array();
   for (var i = 0; i < pop_size; i++) {
     var n = (population[i].fitness);
-    console.log(n);
+    // console.log(n);
     for (var j = 0; j < n; j++) {
       mating_pool.push(population[i]);
     }
@@ -75,11 +75,11 @@ function draw() {
   console.log(mating_pool);
   for (var i = 0; i < pop_size; i++) {
     // debugger;
-    var a = Math.floor(Math.random()*(mating_pool.length+1));
-    var b = Math.floor(Math.random()*(mating_pool.length+1));
+    var a = Math.floor(Math.random()*(mating_pool.length));
+    var b = Math.floor(Math.random()*(mating_pool.length));
     var partnerA = mating_pool[a];
     var partnerB = mating_pool[b];
-    if (!partnerA) {
+    if (!partnerA || !partnerB) {
       debugger;
     }
     // Crossover

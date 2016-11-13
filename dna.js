@@ -13,13 +13,13 @@ class DNA {
 
       // for RGB Values
       if (i%7 == 0 || i%7 == 1 || i%7 == 2 ) {
-        this.gene[i] = Math.floor(Math.random() * (255 - 0 + 1));
+        this.gene[i] = Math.floor(Math.random() * (255 + 1));
       } else if (i%7 == 3) {
         // alpha value
         this.gene[i] = Math.random();
       } else  {
         // x y and radius
-        this.gene[i] = Math.floor(Math.random() * (200 - 0 + 1));
+        this.gene[i] = Math.floor(Math.random() * (200))+1;
       }
     }
   }
@@ -38,13 +38,14 @@ class DNA {
                          deltaGreen * deltaGreen +
                          deltaBlue * deltaBlue;
 
+    //  console.log("pixel fitness: "+ pixelFitness);
       //add the pixel fitness to the total fitness ( lower is better )
       this.fitness += pixelFitness;
     }
     // debugger;
-    console.log("before: " + this.fitness);
+    // console.log("before: " + this.fitness);
     this.fitness = 1/this.fitness;
-    console.log( "after: "+ this.fitness);
+    // console.log( "after: "+ this.fitness);
   }
 
   crossover(partner) {
