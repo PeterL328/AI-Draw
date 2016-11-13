@@ -40,7 +40,7 @@ var myp5 = new p5(sketch2, 'sketch2');
 */
 
 function setup() {
-  createCanvas(1500, 900);
+  createCanvas(300, 900);
 
 
   population = new Array();
@@ -54,7 +54,7 @@ function draw() {
   // debugger;
   // Displays the image at its actual size at point (0,0)
   image(pic1, 0, 0);
-  image(pic2, 0, 300);
+  //image(pic2, 0, 300);
 
   for (var i = 0; i < pop_size; i++) {
     population[i].calcFitness(300, 600);
