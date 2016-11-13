@@ -120,7 +120,8 @@ function draw() {
     population[i] = child;
   }
 
-
   counter++;
+  // Clear canvus
+  clear();
   //console.log("exiting reproduction");
 }
