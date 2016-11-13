@@ -16,5 +16,13 @@
   <script language="javascript" type="text/javascript" src="template.js"></script>
  </head>
  <body>
+   <h3 class="fitness" style="float:right"></h3>
+   <h3 class="generation" style="float: right"></h3>
+
+   <script type="text/javascript">
+//jscs:disable
+     document.querySelector('.fitness').innerHTML = 'Fitness Score: ' + max_fitness_value;
+     document.querySelector('.generation').innerHTML = 'Generation: ' + generation;
+   </script>
  </body>
 </html>

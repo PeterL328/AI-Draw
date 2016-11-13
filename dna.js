@@ -50,7 +50,7 @@ class DNA {
     }
     // debugger;
     // console.log("before: " + this.fitness);
-    this.fitness = 1/this.fitness;
+    this.fitness = 1/Math.log(this.fitness);
     // console.log( "after: "+ this.fitness);
   }
 

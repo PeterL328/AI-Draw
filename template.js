@@ -3,12 +3,11 @@ var pop_size = 50;
 var mutation_rate = 0.01;
 var population;
 var mating_pool;
+var generation = 0;
+var max_fitness_value;
 
 var pic1;
 var pic2;
-// function preload(){
-//   pic1 = loadImage("assets/peter.jpg");
-// }
 
 function setup() {
   createCanvas(300, 900);
@@ -27,20 +26,19 @@ function draw() {
   image(pic1, 0, 0);
 
   //start drawing the circles
-  //for (var i = 0; i < population.length; i++){
-  var max_value= 0;
+  max_fitness_value = 0;
   var max_index;
 
   for (var i = 0; i < pop_size; i++) {
-    if (population[i].fitness > max_value) {
-      max_value = population[i].fitness;
+    if (population[i].fitness > max_fitness_value) {
+      max_fitness_value = population[i].fitness;
       max_index = i;
     }
   }
 
   for (var i = 0; i < pop_size; i++) {
 
-    if(i == max_index) {
+    if(i == max_index && generation%50==0) {
       clear();
       for (var k = 0; k < population[i].gene.length; k+=7){
         //values for RGB
@@ -79,9 +77,6 @@ function draw() {
     var b = Math.floor(Math.random()*(mating_pool.length));
     var partnerA = mating_pool[a];
     var partnerB = mating_pool[b];
-    if (!partnerA || !partnerB) {
-      //debugger;
-    }
     // Crossover
     var child = partnerA.crossover(partnerB);
     // Mutate
@@ -89,5 +84,5 @@ function draw() {
     // Add child to population
     population[i] = child;
   }
-  //console.log("exiting reproduction");
+  generation++;
 }
