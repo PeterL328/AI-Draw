@@ -27,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-  debugger;
+  //debugger;
   // Displays the image at its actual size at point (0,0)
   image(pic1, 0, 0);
 
@@ -50,6 +50,7 @@ function draw() {
       noStroke();
       ellipse(x, y, diameter, diameter);
     }
+    image(pic1, 0, 0);
     console.log("y value "+ population[counter].gene[7+5]);
     population[i].calcFitness(300, 600);
   }
