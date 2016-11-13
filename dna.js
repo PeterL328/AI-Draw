@@ -4,7 +4,6 @@ class DNA {
   constructor() {
     this.gene = [];
     this.fitness = 0.01;
-
     this.length = 7*100;
 
     for (var i = 0; i < this.length; i++) {
@@ -13,19 +12,17 @@ class DNA {
 
       // for RGB Values
       if (i%7 == 0 || i%7 == 1 || i%7 == 2 ) {
-        this.gene[i] = Math.floor(Math.random() * (255 + 1));
+        this.gene[i] = Math.floor(Math.random() * (256));
       } else if (i%7 == 3) {
         // alpha value
         this.gene[i] = Math.random();
       } else  if (i%7 == 4){
         // x values: 0 - 300
-        this.gene[i] = Math.floor(Math.random() * (200))+1;
+        this.gene[i] = Math.floor(Math.random() * (300))+1;
       } else if (i%7 == 5){
-        //y values: 300 - 600
-
+        this.gene[i] = Math.floor(Math.random() * (300))+300;
       } else{
-        //radius: 0 -150
-
+        this.gene[i] = Math.floor(Math.random() * (150));
       }
     }
 
