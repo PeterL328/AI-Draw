@@ -10,40 +10,13 @@ var pic2;
 
 var counter = 0;
 //Preload the pictures
-function preload(){
-  pic1 = loadImage("assets/peter.jpg");
-  //pic2 = loadImage("assets/google.jpg");
-}
-/*
-//Sketch 1
-var sketch1 = function( p ) { // p could be any variable name
-  p.setup = function() {
-    p.createCanvas(400, 300);
-  };
-
-  p.draw = function() {
-    image(pic1, 0, 0);
-  };
-};
-var myp5 = new p5(sketch1, 'sketch1');
-
-// Sketch Two
-var sketch2 = function( p ) {
-  p.setup = function() {
-    p.createCanvas(400, 300);
-  };
-
-  p.draw = function() {
-    image(pic2, 0, 401);
-  };
-};
-//load it to div defined in html
-var myp5 = new p5(sketch2, 'sketch2');
-*/
+// function preload(){
+//   pic1 = loadImage("assets/peter.jpg");
+// }
 
 function setup() {
   createCanvas(300, 900);
-
+  pic1 = loadImage("assets/peter.jpg");
 
   population = new Array();
 
@@ -54,15 +27,15 @@ function setup() {
 }
 
 function draw() {
-  // debugger;
+  debugger;
   // Displays the image at its actual size at point (0,0)
   image(pic1, 0, 0);
-  //image(pic2, 0, 300);
 
   //start drawing the circles
   //for (var i = 0; i < population.length; i++){
-    console.log(population[counter]);
-
+  console.log(population[counter]);
+  for (var i = 0; i < pop_size; i++) {
+    clear();
     for (var k = 0; k < population[counter].gene.length; k+=7){
       //values for RGB
       var red = population[counter].gene[k];
@@ -75,17 +48,9 @@ function draw() {
 
       fill(red, green, blue);
       noStroke();
-
-
       ellipse(x, y, diameter, diameter);
-
     }
-    console.log(population[counter][0]);
-    console.log(population)
-
-  //}
-
-  for (var i = 0; i < pop_size; i++) {
+    console.log("y value "+ population[counter].gene[7+5]);
     population[i].calcFitness(300, 600);
   }
   //console.log("population array: ");
@@ -119,9 +84,5 @@ function draw() {
     // Add child to population
     population[i] = child;
   }
-
-  counter++;
-  // Clear canvus
-  clear();
   //console.log("exiting reproduction");
 }
