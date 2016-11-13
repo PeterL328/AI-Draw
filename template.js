@@ -84,5 +84,10 @@ function draw() {
     // Add child to population
     population[i] = child;
   }
+  var fitnessSentence = 'Fitness Score: ' + max_fitness_value;
+  document.getElementById("fitness").innerHTML = fitnessSentence;
+
+  var fitnessSentence = 'Generation: ' + generation;
+  document.getElementById("generation").innerHTML = fitnessSentence;
   generation++;
 }
