@@ -42,8 +42,9 @@ class DNA {
       this.fitness += pixelFitness;
     }
     // debugger;
-    // console.log(this.fitness);
+    console.log("before: " + this.fitness);
     this.fitness = 1/this.fitness;
+    console.log( "after: "+ this.fitness);
   }
 
   crossover(partner) {
