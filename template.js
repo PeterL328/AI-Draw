@@ -55,30 +55,39 @@ function draw() {
   // Displays the image at its actual size at point (0,0)
   image(pic1, 0, 0);
   image(pic2, 0, 300);
-
   for (var i = 0; i < pop_size; i++) {
     population[i].calcFitness(300, 600);
   }
+  console.log("population array: ");
+  console.log(population);
 
   // Mating pool
   mating_pool = new Array();
   for (var i = 0; i < pop_size; i++) {
-    var n = Math.floor(population[i].fitness);
+    var n = (population[i].fitness);
+    console.log(n);
     for (var j = 0; j < n; j++) {
       mating_pool.push(population[i]);
     }
   }
   // Reproduction
+  console.log("mating pool array: ");
+  console.log(mating_pool);
   for (var i = 0; i < pop_size; i++) {
-    var a = Math.floor(Math.random(mating_pool.length));
-    var b = Math.floor(Math.random(mating_pool.length));
+    // debugger;
+    var a = Math.floor(Math.random()*(mating_pool.length+1));
+    var b = Math.floor(Math.random()*(mating_pool.length+1));
     var partnerA = mating_pool[a];
     var partnerB = mating_pool[b];
+    if (!partnerA) {
+      debugger;
+    }
     // Crossover
-    var child = partnerA.crossover(partnerB)
+    var child = partnerA.crossover(partnerB);
     // Mutate
     child.mutate(mutation_rate);
     // Add child to population
     population[i] = child;
   }
+  console.log("exiting reproduction");
 }
