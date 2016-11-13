@@ -56,6 +56,29 @@ function draw() {
   image(pic1, 0, 0);
   image(pic2, 0, 300);
 
+  //start drawing the circles
+  for (var i = 0; i < population.length; i++){
+    console.log(population[i]);
+    for (var k = 0; k < population[i].length; k+=7){
+      //values for RGB
+      var red = population[i][k];
+      var green = population[i][k+1];
+      var blue = population[i][k+2];
+      //x, y and diameter
+      var x = population[i][k+4];
+      var y = population[i][k+5];
+      var diameter = population[i][k+6] * 2;
+
+      var c = color('rgb(red, green, blue)');
+      noStroke();
+      fill(c);
+
+      ellipse(x, y, diameter, diameter);
+        
+    }
+
+  }
+
   for (var i = 0; i < pop_size; i++) {
     population[i].calcFitness(300, 600);
   }
