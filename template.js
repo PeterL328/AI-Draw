@@ -28,26 +28,38 @@ function draw() {
 
   //start drawing the circles
   //for (var i = 0; i < population.length; i++){
-  for (var i = 0; i < pop_size; i++) {
-    clear();
-    for (var k = 0; k < population[i].gene.length; k+=7){
-      //values for RGB
-      var red = population[i].gene[k];
-      var green = population[i].gene[k+1];
-      var blue = population[i].gene[k+2];
-      var alpha = population[i].gene[k+3];
-      //x, y and diameter
-      var x = population[i].gene[k+4];
-      var y = population[i].gene[k+5];
-      var diameter = population[i].gene[k+6] * 2;
+  var max_value= 0;
+  var max_index;
 
-      var c = color('rgba('+red+  ','+ green + ',' + blue + ',' + alpha + ')');
-      fill(c);
-      noStroke();
-      ellipse(x, y, diameter, diameter);
+  for (var i = 0; i < pop_size; i++) {
+    if (population[i].fitness > max_value) {
+      max_value = population[i].fitness;
+      max_index = i;
     }
-    image(pic1, 0, 0);
-    //console.log("y value "+ population[i].gene[7+5]);
+  }
+
+  for (var i = 0; i < pop_size; i++) {
+
+    if(i == max_index) {
+      clear();
+      for (var k = 0; k < population[i].gene.length; k+=7){
+        //values for RGB
+        var red = population[i].gene[k];
+        var green = population[i].gene[k+1];
+        var blue = population[i].gene[k+2];
+        var alpha = population[i].gene[k+3];
+        //x, y and diameter
+        var x = population[i].gene[k+4];
+        var y = population[i].gene[k+5];
+        var diameter = population[i].gene[k+6] * 2;
+
+        var c = color('rgba('+red+  ','+ green + ',' + blue + ',' + alpha + ')');
+        fill(c);
+        noStroke();
+        ellipse(x, y, diameter, diameter);
+      }
+      image(pic1, 0, 0);
+    }
     population[i].calcFitness(300, 600);
   }
 
@@ -61,8 +73,6 @@ function draw() {
     }
   }
   // Reproduction
-  //console.log("mating pool array: ");
-  //console.log(mating_pool);
   for (var i = 0; i < pop_size; i++) {
     // debugger;
     var a = Math.floor(Math.random()*(mating_pool.length));
