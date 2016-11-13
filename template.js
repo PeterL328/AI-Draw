@@ -4,7 +4,7 @@ var mutation_rate = 0.01;
 var population;
 var mating_pool;
 var generation = 0;
-var max_fitness_value;
+var max_fitness_value = 0;
 
 var pic1;
 var pic2;

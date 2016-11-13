@@ -3,6 +3,7 @@
   <meta charset="UTF-8" />
   <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
   <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src = "dna.js">
 
   </script>
@@ -21,8 +22,8 @@
 
    <script type="text/javascript">
 //jscs:disable
-     document.querySelector('.fitness').innerHTML = 'Fitness Score: ' + max_fitness_value;
-     document.querySelector('.generation').innerHTML = 'Generation: ' + generation;
+    $('.fitness').text('Fitness Score:' + max_fitness_value);
+    $('.generation').text('Generation:' + generation);
    </script>
    <img src="assets/mono.png" style="float:right" alt="Smiley face" height="200" width="400">
  </body>
