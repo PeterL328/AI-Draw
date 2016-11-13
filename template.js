@@ -41,12 +41,14 @@ function draw() {
       var red = population[counter].gene[k];
       var green = population[counter].gene[k+1];
       var blue = population[counter].gene[k+2];
+      var alpha = population[counter].gene[k+3];
       //x, y and diameter
       var x = population[counter].gene[k+4];
       var y = population[counter].gene[k+5];
       var diameter = population[counter].gene[k+6] * 2;
 
-      fill(red, green, blue);
+      var c = color('rgba('+red+  ','+ green + ',' + blue + ',' + alpha + ')');
+      fill(c);
       noStroke();
       ellipse(x, y, diameter, diameter);
     }

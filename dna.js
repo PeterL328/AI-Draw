@@ -66,7 +66,7 @@ class DNA {
 
     for (var i = 0; i < this.gene.length; i++){
 
-      if (random(1) < mutation_rate){
+      if (Math.random() < mutation_rate){
         // for RGB Values
         if (i%7 == 0 || i%7 == 1 || i%7 == 2 ) {
           this.gene[i] = Math.floor(Math.random() * (256));
