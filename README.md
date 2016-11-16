@@ -10,6 +10,7 @@
 <a href="https://github.com/peterl328">Yang(Peter) Leng</a></br>
 <a href="https://github.com/yidingalan">Alan Yiding Wang</a></br>
 <a href="https://github.com/patrick-wu">Patrick Wu</a></br>
+<a href="https://github.com/zh5930">Leo Hao</a></br>
 
 <a href="https://devpost.com/software/ai-draw">Devpost Link</a></br>
 
