@@ -5,9 +5,9 @@ var population;
 var mating_pool;
 var generation = 0;
 var max_fitness_value;
-
 var pic1;
-var pic2;
+var displayFitnessScore;
+var displayGenerationNumber;
 
 function setup() {
   createCanvas(300, 900);
@@ -18,13 +18,11 @@ function setup() {
   for (var i = 0; i < pop_size; i++) {
     population.push(new DNA());
   }
-  console.log("finished setting up");
 }
 
 function draw() {
   // Displays the image at its actual size at point (0,0)
   image(pic1, 0, 0);
-
   //start drawing the circles
   max_fitness_value = 0;
   var max_index;
@@ -37,8 +35,8 @@ function draw() {
   }
 
   for (var i = 0; i < pop_size; i++) {
-
     if(i == max_index && generation%50==0) {
+      // Clears the cancus for every species
       clear();
       for (var k = 0; k < population[i].gene.length; k+=7){
         //values for RGB
@@ -50,10 +48,11 @@ function draw() {
         var x = population[i].gene[k+4];
         var y = population[i].gene[k+5];
         var diameter = population[i].gene[k+6] * 2;
-
         var c = color('rgba('+red+  ','+ green + ',' + blue + ',' + alpha + ')');
+        // Apply color with alpha value
         fill(c);
         noStroke();
+        // Create cirle
         ellipse(x, y, diameter, diameter);
       }
       image(pic1, 0, 0);
@@ -65,14 +64,12 @@ function draw() {
   mating_pool = new Array();
   for (var i = 0; i < pop_size; i++) {
     var n = (population[i].fitness);
-    // console.log(n);
     for (var j = 0; j < n; j++) {
       mating_pool.push(population[i]);
     }
   }
   // Reproduction
   for (var i = 0; i < pop_size; i++) {
-    // debugger;
     var a = Math.floor(Math.random()*(mating_pool.length));
     var b = Math.floor(Math.random()*(mating_pool.length));
     var partnerA = mating_pool[a];
@@ -84,10 +81,12 @@ function draw() {
     // Add child to population
     population[i] = child;
   }
-  var fitnessSentence = 'Fitness Score: ' + max_fitness_value;
-  document.getElementById("fitness").innerHTML = fitnessSentence;
+  // Display the fitness score and generation number
+  displayFitnessScore = 'Fitness Score: ' + max_fitness_value;
+  document.getElementById("fitness").innerHTML = displayFitnessScore;
 
-  var fitnessSentence = 'Generation: ' + generation;
-  document.getElementById("generation").innerHTML = fitnessSentence;
+  displayGenerationNumber = 'Generation: ' + generation;
+  document.getElementById("generation").innerHTML = displayGenerationNumber;
+  // Increment the generation by 1
   generation++;
 }
