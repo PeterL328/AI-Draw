@@ -12,6 +12,7 @@
 <a href="https://github.com/patrick-wu">Patrick Wu</a></br>
 <a href="https://github.com/zh5930">Leo Hao</a></br>
 
+## Link
 <a href="https://devpost.com/software/ai-draw">Devpost Link</a></br>
 
 ##What it does
